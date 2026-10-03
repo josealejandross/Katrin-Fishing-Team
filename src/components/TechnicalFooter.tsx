@@ -1,5 +1,4 @@
 import React from 'react';
-import { KatrinLogo } from './VisualAssets';
 import { Mail, MapPin } from 'lucide-react';
 import {
   SocialIconInstagram,
@@ -8,6 +7,9 @@ import {
   SocialIconTikTok
 } from './SocialIcons';
 
+const FOOTER_LOGO_URL = 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/ka.png';
+const FOOTER_LOGO_LOCAL = '/footer-logo-ka.png';
+
 export const TechnicalFooter: React.FC = () => {
   return (
     <footer className="w-full bg-[#05080f] text-white border-t border-neutral-900 pt-16 pb-12">
@@ -15,7 +17,19 @@ export const TechnicalFooter: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-12 border-b border-neutral-900 text-xs">
           {/* Logo & Location */}
           <div className="space-y-4">
-            <KatrinLogo size="xl" imgClassName="h-14 sm:h-18 md:h-20" showTagline={false} />
+            <div className="inline-flex items-center select-none">
+              <img
+                src={FOOTER_LOGO_LOCAL}
+                alt="Katrin Fishing Team"
+                referrerPolicy="no-referrer"
+                onError={(e) => {
+                  if (e.currentTarget.src !== FOOTER_LOGO_URL) {
+                    e.currentTarget.src = FOOTER_LOGO_URL;
+                  }
+                }}
+                className="h-14 sm:h-18 md:h-20 w-auto max-w-[280px] sm:max-w-[340px] object-contain drop-shadow-md"
+              />
+            </div>
             <div className="flex items-center gap-2 text-neutral-400 font-mono text-xs">
               <MapPin className="w-4 h-4 text-cyan-500 shrink-0" />
               <span className="text-neutral-300 font-medium">Lechería, Anzoátegui, Venezuela</span>
