@@ -6,12 +6,9 @@ interface SimpleSpecies {
 }
 
 const SPECIES_LIST: SimpleSpecies[] = [
-  { name: 'Marlin Azul', catches: 18 },
-  { name: 'Pez Vela', catches: 34 },
-  { name: 'Atún Aleta Amarilla', catches: 28 },
-  { name: 'Mahi Mahi / Dorado', catches: 42 },
-  { name: 'Wahoo', catches: 19 },
-  { name: 'Pez Espada', catches: 5 }
+  { name: 'Marlin Azul', catches: 1 },
+  { name: 'Pez Vela', catches: 0 },
+  { name: 'Dorado', catches: 0 }
 ];
 
 export const Season2026Section: React.FC = () => {
@@ -34,7 +31,7 @@ export const Season2026Section: React.FC = () => {
           {/* Suma actual de todo */}
           <div className="text-left md:text-right">
             <span className="text-4xl sm:text-6xl font-black text-white block leading-none">
-              {totalCatches}
+              {totalCatches.toString().padStart(2, '0')}
             </span>
             <span className="text-xs uppercase tracking-wider text-neutral-400 mt-2 block font-medium">
               Capturas Totales Acumuladas

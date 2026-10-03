@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
 
 interface InstagramPost {
@@ -61,6 +61,10 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
 
 export const InstagramCarousel: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const startXRef = useRef(0);
+  const scrollLeftRef = useRef(0);
+  const hasDraggedRef = useRef(false);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -72,14 +76,44 @@ export const InstagramCarousel: React.FC = () => {
     }
   };
 
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (!scrollContainerRef.current) return;
+    setIsMouseDown(true);
+    hasDraggedRef.current = false;
+    startXRef.current = e.pageX - scrollContainerRef.current.offsetLeft;
+    scrollLeftRef.current = scrollContainerRef.current.scrollLeft;
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown || !scrollContainerRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollContainerRef.current.offsetLeft;
+    const walk = (x - startXRef.current) * 1.4;
+    if (Math.abs(walk) > 4) {
+      hasDraggedRef.current = true;
+    }
+    scrollContainerRef.current.scrollLeft = scrollLeftRef.current - walk;
+  };
+
+  const handleMouseUpOrLeave = () => {
+    setIsMouseDown(false);
+  };
+
+  const handleClickItem = (e: React.MouseEvent) => {
+    if (hasDraggedRef.current) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="w-full pt-10 border-t border-neutral-200 relative group">
-      {/* Subtle overlay navigation arrows for desktop */}
+      {/* Overlay navigation arrows for desktop */}
       <div className="absolute inset-y-0 left-0 z-20 hidden md:flex items-center pointer-events-none -ml-4">
         <button
           onClick={() => scroll('left')}
+          type="button"
           aria-label="Desplazar a la izquierda"
-          className="pointer-events-auto p-2.5 bg-neutral-900/90 hover:bg-black text-white border border-neutral-700/80 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+          className="pointer-events-auto p-2.5 bg-neutral-900/90 hover:bg-black text-white border border-neutral-700/80 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -88,17 +122,24 @@ export const InstagramCarousel: React.FC = () => {
       <div className="absolute inset-y-0 right-0 z-20 hidden md:flex items-center pointer-events-none -mr-4">
         <button
           onClick={() => scroll('right')}
+          type="button"
           aria-label="Desplazar a la derecha"
-          className="pointer-events-auto p-2.5 bg-neutral-900/90 hover:bg-black text-white border border-neutral-700/80 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+          className="pointer-events-auto p-2.5 bg-neutral-900/90 hover:bg-black text-white border border-neutral-700/80 backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 shadow-xl cursor-pointer"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
       </div>
 
-      {/* Strictly 1:1 square cards on all devices */}
+      {/* Strictly 1:1 square cards, full bleed on all devices */}
       <div
         ref={scrollContainerRef}
-        className="-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-3 touch-pan-x overscroll-x-contain"
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUpOrLeave}
+        onMouseLeave={handleMouseUpOrLeave}
+        className={`-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-3 touch-pan-x overscroll-x-contain ${
+          isMouseDown ? 'cursor-grabbing select-none' : 'cursor-grab'
+        }`}
       >
         {INSTAGRAM_POSTS.map((post) => (
           <a
@@ -106,25 +147,37 @@ export const InstagramCarousel: React.FC = () => {
             href={post.postUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleClickItem}
             aria-label="Ver publicación en Instagram de Katrin Fishing"
             style={{ aspectRatio: '1 / 1' }}
-            className="group/item relative shrink-0 w-[68vw] max-w-[260px] sm:w-[240px] md:w-[260px] aspect-square bg-neutral-900 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden"
+            className="group/item relative shrink-0 w-[72vw] min-w-[220px] max-w-[280px] sm:w-[240px] md:w-[260px] lg:w-[275px] aspect-square bg-neutral-900 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden select-none"
           >
-            {/* High-resolution photo filling the full 1:1 square seamlessly */}
+            {/* Absolute positioning guarantees 100% width and height coverage on all WebKit & mobile engines */}
             <img
               src={post.imageUrl}
               alt={post.alt}
               loading="lazy"
+              draggable={false}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'center',
+                display: 'block'
+              }}
               className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover/item:scale-105"
             />
 
             {/* Subtle Instagram badge on mobile/desktop */}
-            <div className="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 shadow-md">
+            <div className="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 shadow-md pointer-events-none">
               <Instagram className="w-3.5 h-3.5" />
             </div>
 
             {/* Hover overlay indicator on desktop */}
-            <div className="absolute inset-0 z-20 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div className="absolute inset-0 z-20 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
               <div className="px-4 py-2 rounded-full bg-black/80 backdrop-blur-sm border border-white/20 flex items-center gap-2 text-white shadow-xl text-xs font-medium tracking-wide">
                 <Instagram className="w-4 h-4 text-white" />
                 <span>Ver en Instagram</span>

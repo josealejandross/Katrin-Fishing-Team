@@ -1,0 +1,23 @@
+{
+  "name": "Katrin Fishing Team",
+  "short_name": "Katrin",
+  "description": "Página oficial de Katrin Fishing Team. Equipo de pesca deportiva y recreacional en mar abierto.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/Icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
