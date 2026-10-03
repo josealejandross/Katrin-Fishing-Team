@@ -33,10 +33,10 @@ export const Season2026Section: React.FC = () => {
 
           {/* Suma actual de todo */}
           <div className="text-left md:text-right">
-            <span className="text-4xl sm:text-6xl font-heading font-black text-white block leading-none">
+            <span className="text-4xl sm:text-6xl font-black text-white block leading-none">
               {totalCatches}
             </span>
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 mt-2 block">
+            <span className="text-xs uppercase tracking-wider text-neutral-400 mt-2 block font-medium">
               Capturas Totales Acumuladas
             </span>
           </div>
@@ -49,10 +49,10 @@ export const Season2026Section: React.FC = () => {
               key={item.name}
               className="p-6 bg-[#0c121e] border border-neutral-850 flex items-center justify-between"
             >
-              <span className="font-heading text-xl font-bold uppercase text-white tracking-wide">
+              <span className="text-xl font-bold uppercase text-white tracking-wide">
                 {item.name}
               </span>
-              <span className="text-3xl font-heading font-black text-white ml-4">
+              <span className="text-3xl font-black text-white ml-4">
                 {item.catches}
               </span>
             </div>

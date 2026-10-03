@@ -40,7 +40,7 @@ export const CrewSection: React.FC = () => {
 
               {/* Data Section: Exactly Equal Spacing From Photo Across All Cards */}
               <div className="p-5 border-t border-neutral-850 flex-1 flex flex-col justify-start">
-                <h3 className="font-heading text-xl font-bold uppercase tracking-wider text-white leading-tight min-h-[3rem] flex items-center">
+                <h3 className="text-xl font-bold uppercase tracking-wider text-white leading-tight min-h-[3rem] flex items-center">
                   {member.name}
                 </h3>
                 <p className="text-sm text-neutral-400 font-normal mt-1.5">

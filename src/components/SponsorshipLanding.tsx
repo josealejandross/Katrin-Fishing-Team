@@ -103,27 +103,27 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
               >
                 <div className="w-full flex flex-col items-center text-center">
                   <div className="border-b border-neutral-850 pb-6 mb-6 w-full flex flex-col items-center text-center">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1 text-center">
+                    <span className="text-[10px] uppercase tracking-wider text-neutral-400 block mb-1 text-center font-medium">
                       Nivel de Patrocinio
                     </span>
-                    <h2 className="font-heading text-2xl font-bold uppercase text-white text-center">
+                    <h3 className="text-2xl font-bold uppercase text-white text-center">
                       {tier.name}
-                    </h2>
+                    </h3>
                     <p className="text-xs text-neutral-400 font-normal mt-1 text-center max-w-xs mx-auto">
                       {tier.subtitle}
                     </p>
                     <div className="mt-4 pt-4 border-t border-neutral-900 w-full text-center">
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block mb-1 text-center">
+                      <span className="text-[10px] uppercase tracking-wider text-neutral-400 block mb-1 text-center font-medium">
                         Aporte Requerido
                       </span>
-                      <span className="text-xl sm:text-2xl font-heading font-black text-white block text-center">
+                      <span className="text-xl sm:text-2xl font-bold text-white block text-center">
                         {tier.investment}
                       </span>
                     </div>
                   </div>
 
                   <div className="space-y-3 mb-8 w-full flex flex-col items-center text-center">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block text-center">
+                    <span className="text-[10px] uppercase tracking-wider text-neutral-400 block text-center font-medium">
                       Beneficios Entregados al Patrocinador:
                     </span>
                     <div className="space-y-2.5 w-full flex flex-col items-center">
@@ -138,14 +138,14 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                 </div>
 
                 <div className="pt-6 border-t border-neutral-850 space-y-3 w-full flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center gap-2 text-[11px] font-mono text-neutral-400 text-center">
+                  <div className="flex items-center justify-center gap-2 text-[11px] text-neutral-400 text-center">
                     <span>Alcance:</span>
                     <span className="text-white font-medium">{tier.impressionsEstimated}</span>
                   </div>
 
                   <button
                     onClick={() => handleSelectTier(tier.id)}
-                    className={`w-full py-3.5 text-xs font-heading font-bold uppercase tracking-wider transition-colors text-center ${
+                    className={`w-full py-3.5 text-xs font-bold uppercase tracking-wider transition-colors text-center ${
                       isSelected
                         ? 'bg-white text-black'
                         : 'bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-750'
@@ -176,7 +176,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
           {formSubmitted ? (
             <div className="p-8 text-center space-y-4 border border-neutral-700 bg-neutral-900/40 w-full flex flex-col items-center">
               <CheckCircle2 className="w-10 h-10 text-white mx-auto" />
-              <h3 className="font-heading text-xl font-bold uppercase text-white text-center">
+              <h3 className="text-xl font-bold uppercase text-white text-center">
                 Solicitud Enviada
               </h3>
               <p className="text-xs text-neutral-300 font-normal max-w-md mx-auto text-center">
@@ -296,7 +296,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto px-10 py-3.5 bg-white hover:bg-neutral-200 text-black font-heading font-extrabold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2"
+                  className="w-full sm:w-auto px-10 py-3.5 bg-white hover:bg-neutral-200 text-black font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>{isSubmitting ? 'Enviando...' : 'Enviar Solicitud'}</span>

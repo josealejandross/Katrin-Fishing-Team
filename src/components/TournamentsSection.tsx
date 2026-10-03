@@ -41,22 +41,22 @@ export const TournamentsSection: React.FC<TournamentsSectionProps> = ({
                   <div className="w-12 h-12 mx-auto rounded-full bg-neutral-800/80 border border-neutral-700 flex items-center justify-center text-sky-400">
                     <Trophy className="w-6 h-6 stroke-[1.5]" />
                   </div>
-                  <div className="font-heading text-lg font-black uppercase tracking-tight leading-tight text-neutral-100">
+                  <div className="text-lg font-bold uppercase tracking-tight leading-tight text-neutral-100">
                     {t.name}
                   </div>
-                  <div className="text-[11px] font-mono text-neutral-400">
+                  <div className="text-[11px] text-neutral-400">
                     {t.location.split(',')[0]}
                   </div>
                 </div>
 
-                <div className="w-full pt-2 border-t border-neutral-800 text-[10px] font-mono text-neutral-500 uppercase tracking-wider">
+                <div className="w-full pt-2 border-t border-neutral-800 text-[10px] text-neutral-500 uppercase tracking-wider">
                   Circuito 2026
                 </div>
               </div>
 
               {/* Nombre y Lugar: Separación exactamente idéntica desde el flyer */}
               <div className="pt-5 pb-4 flex-1 flex flex-col justify-start">
-                <h3 className="font-heading text-xl font-bold uppercase text-neutral-950 leading-tight min-h-[3rem] flex items-center">
+                <h3 className="text-xl font-bold uppercase text-neutral-950 leading-tight min-h-[3rem] flex items-center">
                   {t.name}
                 </h3>
                 <p className="text-sm text-neutral-600 font-normal mt-1.5">
@@ -67,8 +67,8 @@ export const TournamentsSection: React.FC<TournamentsSectionProps> = ({
               {/* Opción de Patrocinar */}
               <div className="pt-4 border-t border-neutral-200 mt-auto">
                 <button
-                  onClick={() => onGoToSponsorshipLanding('titular')}
-                  className="w-full py-3 bg-neutral-950 hover:bg-neutral-800 text-white font-heading font-extrabold text-xs uppercase tracking-wider transition-colors text-center"
+                  onClick={() => onGoToSponsorshipLanding('oro')}
+                  className="w-full py-3 bg-neutral-950 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-colors text-center"
                 >
                   Patrocinar
                 </button>

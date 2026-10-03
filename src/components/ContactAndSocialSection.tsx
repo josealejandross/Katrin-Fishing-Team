@@ -77,7 +77,7 @@ export const ContactAndSocialSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Form */}
           <div className="lg:col-span-7 bg-neutral-50 border border-neutral-200 p-8 sm:p-10 shadow-sm">
-            <h3 className="font-heading text-2xl font-bold uppercase text-neutral-950 mb-2">
+            <h3 className="text-2xl font-bold uppercase text-neutral-950 mb-2">
               Envíanos un Mensaje
             </h3>
             <p className="text-xs text-neutral-600 font-light mb-6">
@@ -87,7 +87,7 @@ export const ContactAndSocialSection: React.FC = () => {
             {formSubmitted ? (
               <div className="p-8 border border-neutral-300 bg-white text-center space-y-3">
                 <CheckCircle2 className="w-8 h-8 text-neutral-900 mx-auto" />
-                <h4 className="font-heading text-xl font-bold uppercase text-neutral-950">
+                <h4 className="text-xl font-bold uppercase text-neutral-950">
                   Mensaje Enviado
                 </h4>
                 <p className="text-xs text-neutral-600 font-light">
@@ -95,7 +95,7 @@ export const ContactAndSocialSection: React.FC = () => {
                 </p>
                 <button
                   onClick={() => setFormSubmitted(false)}
-                  className="mt-3 px-5 py-2 bg-neutral-950 hover:bg-neutral-800 text-white font-mono text-xs uppercase tracking-wider"
+                  className="mt-3 px-5 py-2 bg-neutral-950 hover:bg-neutral-800 text-white text-xs uppercase tracking-wider font-semibold"
                 >
                   Enviar otro mensaje
                 </button>
@@ -103,7 +103,7 @@ export const ContactAndSocialSection: React.FC = () => {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-600 mb-1.5">
+                  <label className="block text-xs uppercase text-neutral-600 mb-1.5 font-medium">
                     Nombre Completo *
                   </label>
                   <input
@@ -112,13 +112,13 @@ export const ContactAndSocialSection: React.FC = () => {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Tu nombre"
-                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 font-mono"
+                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-600 mb-1.5">
+                    <label className="block text-xs uppercase text-neutral-600 mb-1.5 font-medium">
                       Correo Electrónico *
                     </label>
                     <input
@@ -127,12 +127,12 @@ export const ContactAndSocialSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="nombre@correo.com"
-                      className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 font-mono"
+                      className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-mono uppercase text-neutral-600 mb-1.5">
+                    <label className="block text-xs uppercase text-neutral-600 mb-1.5 font-medium">
                       Teléfono / WhatsApp
                     </label>
                     <input
@@ -140,19 +140,19 @@ export const ContactAndSocialSection: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 font-mono"
+                      className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-600 mb-1.5">
+                  <label className="block text-xs uppercase text-neutral-600 mb-1.5 font-medium">
                     Asunto
                   </label>
                   <select
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 font-mono"
+                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900"
                   >
                     <option value="Salida Recreativa / Saludos">Salida Recreativa / Saludos al Equipo</option>
                     <option value="Consulta sobre el Barco">Consulta sobre la Embarcación Katrin 45'</option>
@@ -163,7 +163,7 @@ export const ContactAndSocialSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-mono uppercase text-neutral-600 mb-1.5">
+                  <label className="block text-xs uppercase text-neutral-600 mb-1.5 font-medium">
                     Mensaje *
                   </label>
                   <textarea
@@ -172,7 +172,7 @@ export const ContactAndSocialSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Escribe tu mensaje aquí..."
-                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 font-mono resize-none"
+                    className="w-full bg-white border border-neutral-300 px-4 py-2.5 text-sm text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-neutral-900 resize-none"
                   ></textarea>
                 </div>
 
@@ -180,7 +180,7 @@ export const ContactAndSocialSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full sm:w-auto px-8 py-3.5 bg-neutral-950 hover:bg-neutral-800 text-white font-heading font-extrabold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto px-8 py-3.5 bg-neutral-950 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center justify-center gap-2"
                   >
                     <Send className="w-3.5 h-3.5" />
                     <span>{isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}</span>
@@ -194,10 +194,10 @@ export const ContactAndSocialSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             {/* Social Media Card */}
             <div className="bg-neutral-50 border border-neutral-200 p-8 shadow-sm">
-              <span className="text-[10px] font-mono uppercase tracking-widest text-neutral-500 block mb-2">
+              <span className="text-[10px] uppercase tracking-widest text-neutral-500 block mb-2 font-medium">
                 Comunidad
               </span>
-              <h4 className="font-heading text-xl font-bold uppercase text-neutral-950 mb-3">
+              <h4 className="text-xl font-bold uppercase text-neutral-950 mb-3">
                 REDES SOCIALES OFICIALES
               </h4>
               <p className="text-xs text-neutral-600 font-light mb-6">
@@ -216,10 +216,10 @@ export const ContactAndSocialSection: React.FC = () => {
                     <div className="flex items-center gap-3">
                       {item.icon}
                       <div>
-                        <span className="font-heading font-bold text-xs uppercase text-neutral-950 block transition-colors">
+                        <span className="font-bold text-xs uppercase text-neutral-950 block transition-colors">
                           {item.name}
                         </span>
-                        <span className="text-[11px] font-mono text-neutral-500">
+                        <span className="text-[11px] text-neutral-500">
                           {item.handle}
                         </span>
                       </div>

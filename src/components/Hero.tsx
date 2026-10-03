@@ -57,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSponsorship }) => {
             <button
               onClick={onExploreSponsorship}
               type="button"
-              className="w-full sm:w-auto px-10 py-4 bg-white hover:bg-neutral-200 text-black text-xs font-heading font-extrabold uppercase tracking-widest text-center transition-colors shadow-lg active:translate-y-0.5"
+              className="w-full sm:w-auto px-10 py-4 bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-widest text-center transition-colors shadow-lg active:translate-y-0.5"
             >
               Planes de Patrocinio
             </button>

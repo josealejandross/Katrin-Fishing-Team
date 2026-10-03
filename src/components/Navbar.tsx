@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoToSponsorshipLanding, onGoHo
           </button>
 
           {/* Clean, editorial navigation links */}
-          <nav className="hidden xl:flex items-center gap-8 text-xs font-heading font-bold uppercase tracking-widest text-neutral-300">
+          <nav className="hidden xl:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-neutral-300">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -91,7 +91,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoToSponsorshipLanding, onGoHo
                 }
               }}
               type="button"
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-neutral-200 text-black text-xs font-heading font-extrabold uppercase tracking-wider transition-colors"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-wider transition-colors"
             >
               <span>Patrocinio</span>
               <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -122,7 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoToSponsorshipLanding, onGoHo
                   e.preventDefault();
                   handleLinkClick(link.href);
                 }}
-                className="text-sm font-heading font-bold uppercase tracking-wider text-neutral-300 hover:text-white py-1"
+                className="text-sm font-semibold uppercase tracking-wider text-neutral-300 hover:text-white py-1"
               >
                 {link.label}
               </a>
@@ -133,7 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoToSponsorshipLanding, onGoHo
                   setMobileMenuOpen(false);
                   if (onGoToSponsorshipLanding) onGoToSponsorshipLanding();
                 }}
-                className="w-full text-center py-3 bg-white text-black font-heading font-extrabold text-xs uppercase tracking-wider"
+                className="w-full text-center py-3 bg-white text-black font-bold text-xs uppercase tracking-wider"
               >
                 Planes de Patrocinio
               </button>

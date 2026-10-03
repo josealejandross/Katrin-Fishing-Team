@@ -45,7 +45,7 @@ export const WaterStoriesSection: React.FC = () => {
                     <span>{story.timestamp}</span>
                   </div>
 
-                  <h3 className="font-heading text-xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">
+                  <h3 className="text-xl font-bold uppercase text-white group-hover:text-cyan-400 transition-colors">
                     {story.title}
                   </h3>
 
@@ -101,7 +101,7 @@ export const WaterStoriesSection: React.FC = () => {
                 </span>
               </div>
 
-              <h3 className="font-heading text-3xl font-black uppercase text-white">
+              <h3 className="text-2xl sm:text-3xl font-bold uppercase text-white">
                 {selectedStory.title}
               </h3>
 
