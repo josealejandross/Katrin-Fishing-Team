@@ -6,7 +6,6 @@ interface InstagramPost {
   imageUrl: string;
   postUrl: string;
   alt: string;
-  isWide?: boolean;
 }
 
 const INSTAGRAM_POSTS: InstagramPost[] = [
@@ -50,15 +49,13 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
     id: 'BaCrUR6BMwj',
     imageUrl: '/instagram/BaCrUR6BMwj.jpg',
     postUrl: 'https://www.instagram.com/katrinfishing/p/BaCrUR6BMwj/?hl=es-la',
-    alt: 'Katrin Fishing Instagram post 7',
-    isWide: true
+    alt: 'Katrin Fishing Instagram post 7'
   },
   {
     id: 'BaCrLk0hg2x',
     imageUrl: '/instagram/BaCrLk0hg2x.jpg',
     postUrl: 'https://www.instagram.com/katrinfishing/p/BaCrLk0hg2x/?hl=es-la',
-    alt: 'Katrin Fishing Instagram post 8',
-    isWide: true
+    alt: 'Katrin Fishing Instagram post 8'
   }
 ];
 
@@ -98,7 +95,7 @@ export const InstagramCarousel: React.FC = () => {
         </button>
       </div>
 
-      {/* Edge-to-edge carousel on mobile (-mx-6 px-6), natural flow on desktop */}
+      {/* Strictly 1:1 square cards on all devices */}
       <div
         ref={scrollContainerRef}
         className="-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-3 touch-pan-x overscroll-x-contain"
@@ -110,26 +107,15 @@ export const InstagramCarousel: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Ver publicación en Instagram de Katrin Fishing"
-            className="group/item relative shrink-0 w-[72vw] max-w-[270px] sm:w-[240px] md:w-[260px] lg:w-[270px] aspect-[3/4] bg-neutral-950 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden"
+            style={{ aspectRatio: '1 / 1' }}
+            className="group/item relative shrink-0 w-[68vw] max-w-[260px] sm:w-[240px] md:w-[260px] aspect-square bg-neutral-900 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden"
           >
-            {/* Ambient background blur for wide or square photos to prevent letterboxing */}
-            {post.isWide && (
-              <img
-                src={post.imageUrl}
-                aria-hidden="true"
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-40 pointer-events-none"
-              />
-            )}
-
-            {/* Main high-resolution photo displayed without awkward cuts */}
+            {/* High-resolution photo filling the full 1:1 square seamlessly */}
             <img
               src={post.imageUrl}
               alt={post.alt}
               loading="lazy"
-              className={`relative z-10 w-full h-full transition-transform duration-500 ease-out group-hover/item:scale-105 ${
-                post.isWide ? 'object-contain' : 'object-cover object-center'
-              }`}
+              className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover/item:scale-105"
             />
 
             {/* Subtle Instagram badge on mobile/desktop */}
