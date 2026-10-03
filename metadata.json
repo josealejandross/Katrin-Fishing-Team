@@ -1,0 +1,6 @@
+{
+  "name": "Katrin Fishing Team",
+  "description": "Página oficial de Katrin Fishing Team. Equipo de pesca deportiva y recreacional en mar abierto.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
