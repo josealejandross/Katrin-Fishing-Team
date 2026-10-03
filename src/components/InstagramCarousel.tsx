@@ -6,6 +6,7 @@ interface InstagramPost {
   imageUrl: string;
   postUrl: string;
   alt: string;
+  isWide?: boolean;
 }
 
 const INSTAGRAM_POSTS: InstagramPost[] = [
@@ -49,13 +50,15 @@ const INSTAGRAM_POSTS: InstagramPost[] = [
     id: 'BaCrUR6BMwj',
     imageUrl: '/instagram/BaCrUR6BMwj.jpg',
     postUrl: 'https://www.instagram.com/katrinfishing/p/BaCrUR6BMwj/?hl=es-la',
-    alt: 'Katrin Fishing Instagram post 7'
+    alt: 'Katrin Fishing Instagram post 7',
+    isWide: true
   },
   {
     id: 'BaCrLk0hg2x',
     imageUrl: '/instagram/BaCrLk0hg2x.jpg',
     postUrl: 'https://www.instagram.com/katrinfishing/p/BaCrLk0hg2x/?hl=es-la',
-    alt: 'Katrin Fishing Instagram post 8'
+    alt: 'Katrin Fishing Instagram post 8',
+    isWide: true
   }
 ];
 
@@ -75,7 +78,7 @@ export const InstagramCarousel: React.FC = () => {
   return (
     <div className="w-full pt-10 border-t border-neutral-200 relative group">
       {/* Subtle overlay navigation arrows for desktop */}
-      <div className="absolute inset-y-0 left-0 z-10 hidden sm:flex items-center pointer-events-none -ml-4">
+      <div className="absolute inset-y-0 left-0 z-20 hidden md:flex items-center pointer-events-none -ml-4">
         <button
           onClick={() => scroll('left')}
           aria-label="Desplazar a la izquierda"
@@ -85,7 +88,7 @@ export const InstagramCarousel: React.FC = () => {
         </button>
       </div>
 
-      <div className="absolute inset-y-0 right-0 z-10 hidden sm:flex items-center pointer-events-none -mr-4">
+      <div className="absolute inset-y-0 right-0 z-20 hidden md:flex items-center pointer-events-none -mr-4">
         <button
           onClick={() => scroll('right')}
           aria-label="Desplazar a la derecha"
@@ -95,10 +98,10 @@ export const InstagramCarousel: React.FC = () => {
         </button>
       </div>
 
-      {/* Pure Images: ONLY the photos and direct links */}
+      {/* Edge-to-edge carousel on mobile (-mx-6 px-6), natural flow on desktop */}
       <div
         ref={scrollContainerRef}
-        className="w-full flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-2"
+        className="-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-3 touch-pan-x overscroll-x-contain"
       >
         {INSTAGRAM_POSTS.map((post) => (
           <a
@@ -106,23 +109,49 @@ export const InstagramCarousel: React.FC = () => {
             href={post.postUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group/item relative shrink-0 w-[220px] sm:w-[250px] md:w-[270px] aspect-square overflow-hidden bg-neutral-100 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm"
+            aria-label="Ver publicación en Instagram de Katrin Fishing"
+            className="group/item relative shrink-0 w-[72vw] max-w-[270px] sm:w-[240px] md:w-[260px] lg:w-[270px] aspect-[3/4] bg-neutral-950 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden"
           >
+            {/* Ambient background blur for wide or square photos to prevent letterboxing */}
+            {post.isWide && (
+              <img
+                src={post.imageUrl}
+                aria-hidden="true"
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover blur-xl scale-125 opacity-40 pointer-events-none"
+              />
+            )}
+
+            {/* Main high-resolution photo displayed without awkward cuts */}
             <img
               src={post.imageUrl}
               alt={post.alt}
               loading="lazy"
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover/item:scale-105"
+              className={`relative z-10 w-full h-full transition-transform duration-500 ease-out group-hover/item:scale-105 ${
+                post.isWide ? 'object-contain' : 'object-cover object-center'
+              }`}
             />
 
-            {/* Hover Instagram icon indicator */}
-            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-              <div className="w-11 h-11 rounded-full bg-black/75 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white shadow-lg">
-                <Instagram className="w-5 h-5" />
+            {/* Subtle Instagram badge on mobile/desktop */}
+            <div className="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 shadow-md">
+              <Instagram className="w-3.5 h-3.5" />
+            </div>
+
+            {/* Hover overlay indicator on desktop */}
+            <div className="absolute inset-0 z-20 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="px-4 py-2 rounded-full bg-black/80 backdrop-blur-sm border border-white/20 flex items-center gap-2 text-white shadow-xl text-xs font-medium tracking-wide">
+                <Instagram className="w-4 h-4 text-white" />
+                <span>Ver en Instagram</span>
               </div>
             </div>
           </a>
         ))}
+      </div>
+
+      {/* Subtle indicator hint on mobile */}
+      <div className="sm:hidden flex items-center justify-between text-[11px] text-neutral-400 pt-2 px-1 font-medium">
+        <span>Galería de Instagram</span>
+        <span>Desliza para ver más →</span>
       </div>
     </div>
   );
