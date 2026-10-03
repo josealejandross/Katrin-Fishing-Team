@@ -7,16 +7,21 @@ export const OFFICIAL_LOGO_FALLBACK = 'https://lituozmsdcrsgvkdityk.supabase.co/
 
 export const KatrinLogo: React.FC<{
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'hero';
+  imgClassName?: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'hero';
   showTagline?: boolean;
-}> = ({ className = '', size = 'md' }) => {
+}> = ({ className = '', imgClassName = '', size = 'md' }) => {
   const [src, setSrc] = React.useState(OFFICIAL_LOGO_URL);
 
   const heightClass =
-    size === 'sm'
+    imgClassName
+      ? imgClassName
+      : size === 'sm'
       ? 'h-6 sm:h-7'
       : size === 'lg'
       ? 'h-10 sm:h-12'
+      : size === 'xl'
+      ? 'h-14 sm:h-16 md:h-20'
       : size === 'hero'
       ? 'h-24 sm:h-32 md:h-40 lg:h-48'
       : 'h-8 sm:h-9';

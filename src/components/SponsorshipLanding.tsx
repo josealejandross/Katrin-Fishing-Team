@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { SPONSORSHIP_TIERS } from '../data/mockData';
 import {
   Send,
-  MessageCircle,
   CheckCircle2,
   ArrowLeft
 } from 'lucide-react';
+import { SocialIconWhatsApp } from './SocialIcons';
 
 interface SponsorshipLandingProps {
   initialTier?: string;
@@ -57,7 +57,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
   const getWhatsAppMessage = () => {
     const tierName = SPONSORSHIP_TIERS.find((t) => t.id === selectedTier)?.name || 'Patrocinio General';
     const text = `Hola Katrin Fishing Team, solicito información sobre el plan de patrocinio: ${tierName}. Empresa: ${formData.company || 'Mi marca'}.`;
-    return `https://wa.me/18095550199?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/584141846304?text=${encodeURIComponent(text)}`;
   };
 
   return (
@@ -189,7 +189,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                   rel="noreferrer"
                   className="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-mono text-xs uppercase tracking-wider inline-flex items-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <SocialIconWhatsApp className="w-4 h-4 text-white" />
                   <span>Contactar por WhatsApp</span>
                 </a>
                 <button
@@ -306,9 +306,9 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                   href={getWhatsAppMessage()}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-neutral-400 hover:text-emerald-400 font-mono text-xs inline-flex items-center justify-center gap-2 transition-colors text-center"
+                  className="text-neutral-400 hover:text-emerald-400 font-mono text-xs inline-flex items-center justify-center gap-2 transition-colors text-center group"
                 >
-                  <MessageCircle className="w-4 h-4 text-emerald-400" />
+                  <SocialIconWhatsApp className="w-4 h-4 text-emerald-400 group-hover:scale-110 transition-transform" />
                   <span>WhatsApp Directo</span>
                 </a>
               </div>

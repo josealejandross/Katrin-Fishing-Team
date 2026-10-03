@@ -63,7 +63,7 @@ export const TournamentsAndSponsorship: React.FC<Props> = ({ onOpenDeckModal }) 
     const message = encodeURIComponent(
       'Hola Katrin Fishing Team. Me gustaría consultar las oportunidades de patrocinio para la temporada 2026.'
     );
-    window.open(`https://wa.me/18095550198?text=${message}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://wa.me/584141846304?text=${message}`, '_blank', 'noopener,noreferrer');
   };
 
   const renderMinimalIcon = (iconName: string) => {

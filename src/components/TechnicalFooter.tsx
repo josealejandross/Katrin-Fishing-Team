@@ -1,69 +1,76 @@
 import React from 'react';
 import { KatrinLogo } from './VisualAssets';
-import { ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import {
+  SocialIconInstagram,
+  SocialIconYouTube,
+  SocialIconWhatsApp,
+  SocialIconTikTok
+} from './SocialIcons';
 
 export const TechnicalFooter: React.FC = () => {
   return (
     <footer className="w-full bg-[#05080f] text-white border-t border-neutral-900 pt-16 pb-12">
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-neutral-900 text-xs">
-          {/* Brand */}
-          <div className="space-y-3">
-            <KatrinLogo size="sm" showTagline={false} />
-            <p className="text-neutral-500 font-normal text-xs leading-relaxed max-w-sm">
-              Equipo de pesca deportiva y recreacional en mar abierto. Navegación, camaradería y respeto a las normas éticas de captura y suelta.
-            </p>
-          </div>
-
-          {/* Contacto */}
-          <div className="space-y-2">
-            <span className="font-mono uppercase text-neutral-400 text-xs tracking-wider block">
-              Contacto
-            </span>
-            <ul className="space-y-2 text-neutral-400 font-mono text-xs">
-              <li>
-                <a href="mailto:contacto@katrinfishingteam.com" className="hover:text-white transition-colors">
-                  contacto@katrinfishingteam.com
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.instagram.com/katrinfishing/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-pink-400 transition-colors inline-flex items-center gap-1"
-                >
-                  <span>Instagram @katrinfishing</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/18095550199"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors inline-flex items-center gap-1"
-                >
-                  <span>WhatsApp Oficial</span>
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Puerto Base */}
-          <div className="space-y-2">
-            <span className="font-mono uppercase text-neutral-400 text-xs tracking-wider block">
-              Puertos Base
-            </span>
-            <div className="space-y-1.5 text-neutral-400 font-mono text-xs">
-              <div>Marina Los Sueños · Costa Rica</div>
-              <div>Marina Casa de Campo · Rep. Dominicana</div>
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-12 border-b border-neutral-900 text-xs">
+          {/* Logo & Location */}
+          <div className="space-y-4">
+            <KatrinLogo size="xl" imgClassName="h-14 sm:h-18 md:h-20" showTagline={false} />
+            <div className="flex items-center gap-2 text-neutral-400 font-mono text-xs">
+              <MapPin className="w-4 h-4 text-cyan-500 shrink-0" />
+              <span className="text-neutral-300 font-medium">Lechería, Anzoátegui, Venezuela</span>
             </div>
+          </div>
+
+          {/* Social & Mail Icons Only */}
+          <div className="flex items-center gap-2.5">
+            <a
+              href="https://www.instagram.com/katrinfishing/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram @katrinfishing"
+              className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-pink-500 hover:bg-neutral-850 text-white flex items-center justify-center transition-all group shadow-sm"
+            >
+              <SocialIconInstagram className="w-4 h-4 text-white group-hover:text-pink-400 transition-colors" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@katrinfishing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok @katrinfishing"
+              className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-white hover:bg-neutral-850 text-white flex items-center justify-center transition-all group shadow-sm"
+            >
+              <SocialIconTikTok className="w-4 h-4 text-white group-hover:text-neutral-200 transition-colors" />
+            </a>
+            <a
+              href="https://www.youtube.com/@katrinfishing"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube @katrinfishing"
+              className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-red-500 hover:bg-neutral-850 text-white flex items-center justify-center transition-all group shadow-sm"
+            >
+              <SocialIconYouTube className="w-4 h-4 text-white group-hover:text-red-400 transition-colors" />
+            </a>
+            <a
+              href="https://wa.me/584141846304"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp +58 414-1846304"
+              className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-emerald-500 hover:bg-neutral-850 text-white flex items-center justify-center transition-all group shadow-sm"
+            >
+              <SocialIconWhatsApp className="w-4 h-4 text-white group-hover:text-emerald-400 transition-colors" />
+            </a>
+            <a
+              href="mailto:katrinfishingteam@gmail.com"
+              aria-label="Correo katrinfishingteam@gmail.com"
+              className="w-10 h-10 rounded-lg bg-neutral-900 border border-neutral-800 hover:border-cyan-400 hover:bg-neutral-850 text-white flex items-center justify-center transition-all group shadow-sm"
+            >
+              <Mail className="w-4 h-4 text-white group-hover:text-cyan-400 transition-colors" />
+            </a>
           </div>
         </div>
 
-        {/* Quiet copyright */}
+        {/* Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-neutral-500 gap-4">
           <span>© 2026 Katrin Fishing Team. Todos los derechos reservados.</span>
           <div className="flex gap-6">

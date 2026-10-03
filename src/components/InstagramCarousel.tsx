@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, Instagram } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { SocialIconInstagram } from './SocialIcons';
 
 interface InstagramPost {
   id: string;
@@ -173,13 +174,13 @@ export const InstagramCarousel: React.FC = () => {
 
             {/* Subtle Instagram badge on mobile/desktop */}
             <div className="absolute top-3 right-3 z-20 w-7 h-7 rounded-full bg-black/60 backdrop-blur-md border border-white/20 flex items-center justify-center text-white/90 shadow-md pointer-events-none">
-              <Instagram className="w-3.5 h-3.5" />
+              <SocialIconInstagram className="w-3.5 h-3.5 text-white" />
             </div>
 
             {/* Hover overlay indicator on desktop */}
             <div className="absolute inset-0 z-20 bg-black/40 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
               <div className="px-4 py-2 rounded-full bg-black/80 backdrop-blur-sm border border-white/20 flex items-center gap-2 text-white shadow-xl text-xs font-medium tracking-wide">
-                <Instagram className="w-4 h-4 text-white" />
+                <SocialIconInstagram className="w-4 h-4 text-white" />
                 <span>Ver en Instagram</span>
               </div>
             </div>

@@ -26,13 +26,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSponsorship }) => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 w-full my-auto text-center flex flex-col items-center">
         <div className="w-full space-y-8 flex flex-col items-center">
           
-          {/* Category kicker: Strictly single-line on mobile */}
-          <div className="inline-block text-[11px] sm:text-xs md:text-sm font-mono tracking-widest text-neutral-400 uppercase whitespace-nowrap">
-            Pesca Deportiva y Recreacional <span className="text-neutral-600 px-1">·</span> Temporada 2026
-          </div>
-
           {/* Official Vector SVG Logo: Pure white, ultra-sharp vector scale */}
-          <div className="py-3 flex justify-center w-full">
+          <div className="py-2 flex justify-center w-full">
             <h1 className="sr-only">Katrin Fishing Team</h1>
             <img
               src={HERO_LOGO_SVG}
@@ -47,32 +42,38 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSponsorship }) => {
             />
           </div>
 
-          {/* Clean Subtitle */}
-          <p className="text-lg sm:text-2xl font-normal text-neutral-300 max-w-2xl leading-relaxed tracking-wide text-center mx-auto">
-            Ingeniería, pasión y respeto por el mar abierto.
+          {/* Subtitle Replaced with Season Category Text */}
+          <p className="text-sm sm:text-base md:text-lg font-mono tracking-widest text-neutral-300 uppercase max-w-2xl leading-relaxed text-center mx-auto">
+            Pesca Deportiva y Recreacional <span className="text-neutral-500 px-1">·</span> Temporada 2026
           </p>
 
-          {/* Flat Minimalist Action Button */}
-          <div className="pt-4 flex items-center justify-center w-full sm:w-auto">
+          {/* Parallel Action Buttons */}
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+            <a
+              href="#sobre-nosotros"
+              className="w-full sm:w-auto px-8 py-4 border border-white/40 hover:border-white hover:bg-white/10 text-white text-xs font-bold uppercase tracking-widest text-center transition-all shadow-sm active:translate-y-0.5 inline-flex items-center justify-center cursor-pointer"
+            >
+              Conoce al equipo
+            </a>
             <button
               onClick={onExploreSponsorship}
               type="button"
-              className="w-full sm:w-auto px-10 py-4 bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-widest text-center transition-colors shadow-lg active:translate-y-0.5"
+              className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-neutral-200 text-black text-xs font-bold uppercase tracking-widest text-center transition-all shadow-lg active:translate-y-0.5 cursor-pointer inline-flex items-center justify-center"
             >
-              Planes de Patrocinio
+              Planes de patrocinio
             </button>
           </div>
         </div>
       </div>
 
-      {/* Clean Bottom Navigation Link */}
+      {/* Clean Bottom Scroll Indicator */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
         <a
           href="#sobre-nosotros"
-          className="inline-flex items-center justify-center gap-2 text-neutral-500 hover:text-white transition-colors uppercase tracking-widest text-[11px] font-mono py-2"
+          aria-label="Desplazar hacia abajo"
+          className="inline-flex items-center justify-center p-2 text-neutral-500 hover:text-white transition-colors"
         >
-          <span>Conoce el equipo</span>
-          <ArrowDown className="w-3.5 h-3.5" />
+          <ArrowDown className="w-4 h-4 animate-bounce" />
         </a>
       </div>
     </section>
