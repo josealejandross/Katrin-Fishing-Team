@@ -11,6 +11,8 @@ export interface CrewMember {
   certifications: string[];
   gear: string;
   avatarSeed: string;
+  photoUrl?: string;
+  photoFallback?: string;
 }
 
 export interface TargetSpecies {

@@ -52,7 +52,9 @@ export const CREW_MEMBERS: CrewMember[] = [
     quote: 'El mar exige respeto, instinto y hermandad en cada jornada.',
     certifications: ['Patrón de Pesca Offshore'],
     gear: 'Consola de Navegación Katrin 45',
-    avatarSeed: 'captain-francisco'
+    avatarSeed: 'captain-francisco',
+    photoUrl: '/crew/francisco.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_5347.jpeg'
   },
   {
     id: 'frank-salazar',
@@ -66,7 +68,9 @@ export const CREW_MEMBERS: CrewMember[] = [
     quote: 'La pasión por el mar se vive en cada tiro de línea.',
     certifications: ['Pesca Deportiva IGFA'],
     gear: 'Aparejos de Alta Gama',
-    avatarSeed: 'angler-frank'
+    avatarSeed: 'angler-frank',
+    photoUrl: '/crew/frank.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_5347_1.jpeg'
   },
   {
     id: 'luis-salazar',
@@ -80,7 +84,9 @@ export const CREW_MEMBERS: CrewMember[] = [
     quote: 'Trabajo en equipo y devoción por la pesca deportiva.',
     certifications: ['Pesca Deportiva IGFA'],
     gear: 'Equipos de Combate Offshore',
-    avatarSeed: 'angler-luis'
+    avatarSeed: 'angler-luis',
+    photoUrl: '/crew/luis.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_5347_2.jpeg'
   },
   {
     id: 'jose-alejandro-salazar',
@@ -94,7 +100,25 @@ export const CREW_MEMBERS: CrewMember[] = [
     quote: 'Cada salida es una nueva historia en el mar.',
     certifications: ['Pesca Deportiva IGFA'],
     gear: 'Líneas y Señuelos Profesionales',
-    avatarSeed: 'angler-jose'
+    avatarSeed: 'angler-jose',
+    photoUrl: '/crew/jose_alejandro.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_0285.jpeg'
+  },
+  {
+    id: 'rafael-shicho-spluguez',
+    name: 'Rafael "Shicho" Spluguez',
+    role: 'Pescador',
+    badge: 'Pescador',
+    experience: 'Pesca Deportiva y Recreacional',
+    favoriteSpecies: 'Grandes Pelágicos',
+    personalRecord: 'Offshore Trolling',
+    bio: 'Pescador del Katrin Fishing Team. Destreza náutica, aparejos y energía en cubierta.',
+    quote: 'El compromiso con el equipo y la faena marina se demuestran en el agua.',
+    certifications: ['Pesca Deportiva IGFA'],
+    gear: 'Equipos Offshore Profesionales',
+    avatarSeed: 'angler-rafael',
+    photoUrl: '/crew/rafael_shicho.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_5687.jpeg'
   }
 ];
 
