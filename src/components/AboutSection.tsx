@@ -8,7 +8,7 @@ export const AboutSection: React.FC = () => {
         {/* Section Header */}
         <div className="mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-neutral-500 block mb-3">
-            Nuestra Historia · Est. 2012
+            Nuestra Historia · Est. 2016
           </span>
           <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-neutral-950 max-w-3xl leading-none">
             PASIÓN POR EL MAR ABIERTO
