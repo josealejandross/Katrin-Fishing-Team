@@ -5,6 +5,7 @@ import {
   MapPin,
   Mail
 } from 'lucide-react';
+import { sendEmailNotification } from '../services/emailService';
 
 export const ContactAndSocialSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -17,13 +18,19 @@ export const ContactAndSocialSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormSubmitted(true);
-    }, 600);
+    await sendEmailNotification({
+      formType: 'contacto',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message
+    });
+    setIsSubmitting(false);
+    setFormSubmitted(true);
   };
 
   return (
@@ -75,10 +82,10 @@ export const ContactAndSocialSection: React.FC = () => {
             <div className="p-8 border border-neutral-300 bg-white text-center space-y-3">
               <CheckCircle2 className="w-8 h-8 text-neutral-900 mx-auto" />
               <h4 className="text-xl font-bold uppercase text-neutral-950">
-                Mensaje Enviado
+                Mensaje Enviado con Éxito
               </h4>
-              <p className="text-xs text-neutral-600 font-light">
-                Gracias por escribirnos, {formData.name}. Nos pondremos en contacto contigo pronto.
+              <p className="text-xs text-neutral-600 font-light max-w-md mx-auto leading-relaxed">
+                Hemos enviado tu mensaje a <strong>katrinfishingteam@gmail.com</strong>. Gracias por escribirnos, {formData.name}, nos pondremos en contacto contigo a la brevedad.
               </p>
               <button
                 onClick={() => setFormSubmitted(false)}

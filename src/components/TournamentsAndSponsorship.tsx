@@ -15,6 +15,7 @@ import {
   Anchor,
   Award
 } from 'lucide-react';
+import { sendEmailNotification } from '../services/emailService';
 
 interface Props {
   onOpenDeckModal: () => void;
@@ -50,13 +51,19 @@ export const TournamentsAndSponsorship: React.FC<Props> = ({ onOpenDeckModal }) 
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormSubmitted(true);
-    }, 700);
+    await sendEmailNotification({
+      formType: 'patrocinio',
+      name: formData.name,
+      company: formData.company,
+      email: formData.email,
+      tier: formData.tier,
+      message: `Solicitud de patrocinio desde sección de torneos para nivel ${formData.tier}`
+    });
+    setIsSubmitting(false);
+    setFormSubmitted(true);
   };
 
   const handleWhatsAppClick = () => {
@@ -266,10 +273,10 @@ export const TournamentsAndSponsorship: React.FC<Props> = ({ onOpenDeckModal }) 
               <div className="py-8 text-center space-y-3">
                 <CheckCircle2 className="w-8 h-8 text-cyan-400 mx-auto" />
                 <h4 className="font-heading text-xl font-bold uppercase text-white">
-                  Mensaje Enviado
+                  Solicitud Enviada con Éxito
                 </h4>
-                <p className="text-xs text-neutral-400 font-light">
-                  Nos pondremos en contacto a la brevedad con la información de patrocinio.
+                <p className="text-xs text-neutral-400 font-light max-w-md mx-auto leading-relaxed">
+                  Hemos notificado a <strong className="text-white">katrinfishingteam@gmail.com</strong>. Nos pondremos en contacto a la brevedad con la información de patrocinio.
                 </p>
               </div>
             ) : (

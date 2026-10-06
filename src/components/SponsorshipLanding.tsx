@@ -6,6 +6,7 @@ import {
   ArrowLeft
 } from 'lucide-react';
 import { SocialIconWhatsApp } from './SocialIcons';
+import { sendEmailNotification } from '../services/emailService';
 
 interface SponsorshipLandingProps {
   initialTier?: string;
@@ -45,13 +46,20 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setFormSubmitted(true);
-    }, 600);
+    await sendEmailNotification({
+      formType: 'patrocinio',
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      tier: formData.tier,
+      message: formData.message
+    });
+    setIsSubmitting(false);
+    setFormSubmitted(true);
   };
 
   const getWhatsAppMessage = () => {
@@ -177,10 +185,10 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
             <div className="p-8 text-center space-y-4 border border-neutral-700 bg-neutral-900/40 w-full flex flex-col items-center">
               <CheckCircle2 className="w-10 h-10 text-white mx-auto" />
               <h3 className="text-xl font-bold uppercase text-white text-center">
-                Solicitud Enviada
+                Solicitud Enviada con Éxito
               </h3>
-              <p className="text-xs text-neutral-300 font-normal max-w-md mx-auto text-center">
-                Hemos recibido tu propuesta para el nivel <strong className="text-white uppercase">{formData.tier}</strong>. Nos comunicaremos contigo vía email a <strong>{formData.email}</strong>.
+              <p className="text-xs text-neutral-300 font-normal max-w-md mx-auto text-center leading-relaxed">
+                Hemos enviado la notificación a <strong className="text-white">katrinfishingteam@gmail.com</strong> con tu propuesta para el nivel <strong className="text-white uppercase">{formData.tier}</strong>. Nos comunicaremos contigo a <strong>{formData.email}</strong>.
               </p>
               <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
