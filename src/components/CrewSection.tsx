@@ -10,10 +10,10 @@ export const CrewSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between border-b border-neutral-800 pb-8 mb-16 gap-6">
           <div>
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 block mb-3">
-              El Equipo Humano
+              Katrin Fishing Team 2026
             </span>
             <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-white leading-none">
-              LA TRIPULACIÓN
+              NUESTRO EQUIPO
             </h2>
           </div>
 

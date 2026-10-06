@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGoToSponsorshipLanding, onGoHo
 
   const navLinks = [
     { label: 'Sobre Nosotros', href: '#sobre-nosotros' },
-    { label: 'La Tripulación', href: '#tripulacion' },
+    { label: 'Nuestro Equipo', href: '#tripulacion' },
     { label: 'El Barco', href: '#barco' },
     { label: 'Temporada 2026', href: '#temporada-2026' },
     { label: 'Torneos', href: '#torneos' },
