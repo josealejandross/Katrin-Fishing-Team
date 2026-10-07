@@ -329,12 +329,6 @@ export const CatchActionCardVisual: React.FC<{ type: string; title: string }> = 
         </svg>
       </div>
 
-      {/* Technical grid coordinates overlay */}
-      <div className="absolute top-3 left-3 flex items-center gap-1.5 text-[10px] font-mono text-cyan-400">
-        <span className="w-1.5 h-1.5 bg-cyan-400 animate-pulse"></span>
-        <span>BITÁCORA // CAPTURA REGISTRADA</span>
-      </div>
-
       {/* Dark scrim */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
     </div>

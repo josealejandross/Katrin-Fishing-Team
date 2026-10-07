@@ -57,15 +57,18 @@ export interface WaterStory {
   id: string;
   title: string;
   species: string;
-  weight: string;
-  coordinates: string;
-  waterTemp: string;
-  lureOrBait: string;
-  releaseStatus: 'Liberación Satelital' | 'Tag & Release' | 'Pesaje Oficial';
-  timestamp: string;
+  weight?: string;
+  coordinates?: string;
+  waterTemp?: string;
+  lureOrBait?: string;
+  releaseStatus?: string;
+  timestamp?: string;
+  date: string;
   location: string;
   caption: string;
-  aspect: 'square' | 'vertical' | 'horizontal';
-  likes: number;
-  shares: number;
+  aspect?: 'square' | 'vertical' | 'horizontal';
+  likes?: number;
+  shares?: number;
+  photoUrl?: string;
+  photoFallback?: string;
 }
