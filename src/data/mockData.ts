@@ -51,7 +51,7 @@ export const CREW_MEMBERS: CrewMember[] = [
     bio: 'Capitán del Katrin Fishing Team. Líder de navegación, estrategia marina y maniobras en mar abierto.',
     quote: 'El mar exige respeto, instinto y hermandad en cada jornada.',
     certifications: ['Patrón de Pesca Offshore'],
-    gear: 'Consola de Navegación Katrin 45',
+    gear: 'Consola de Navegación Phoenix 34',
     avatarSeed: 'captain-francisco',
     photoUrl: '/crew/francisco.jpg',
     photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_5347.jpeg'
@@ -239,8 +239,8 @@ export const WATER_STORIES: WaterStory[] = [
     title: 'BATALLA HASTA EL ANOCHECER CON EL GIGANTE AZUL',
     species: 'Marlin Azul',
     location: 'Puerto la Cruz',
-    date: '28 de septiembre, 2026',
-    timestamp: '28 de septiembre, 2026',
+    date: '26 de septiembre, 2026',
+    timestamp: '26 de septiembre, 2026',
     caption: 'Cinco horas de tensión pura hasta las 8PM. Frank Salazar retó al Big Blue llevando al límite la caña de 30 lbs. Al intentar embarcarlo a la fuerza, lo reventamos.',
     aspect: 'horizontal',
     photoUrl: '/stories/gigante_azul.jpeg',
@@ -249,7 +249,7 @@ export const WATER_STORIES: WaterStory[] = [
 ];
 
 export const VESSEL_SPECS = {
-  model: "Katrin 45' Custom Express Sportfisher",
+  model: "Katrin: Phoenix 34 Tournament",
   builder: 'Custom Marine Yacht Works',
   length: '45 ft (13.72 m)',
   beam: '15.6 ft (4.75 m)',

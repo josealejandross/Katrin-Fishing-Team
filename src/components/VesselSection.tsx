@@ -23,7 +23,7 @@ export const VesselSection: React.FC = () => {
               La Embarcación Oficial
             </span>
             <h2 className="font-heading text-4xl sm:text-6xl font-black uppercase tracking-tight text-neutral-950 leading-none">
-              EL BARCO: KATRIN 45'
+              KATRIN: PHOENIX 34 TOURNAMENT
             </h2>
           </div>
 
@@ -53,7 +53,7 @@ export const VesselSection: React.FC = () => {
         <div className="w-full bg-[#080c14] border-t border-neutral-850 py-3.5 px-6 sm:px-8">
           <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-start sm:items-center text-xs font-mono text-neutral-400 gap-2">
             <span className="uppercase tracking-wider text-neutral-300">
-              Katrin 45' Custom Sportfisher · Navegación en Alta Mar
+              Phoenix 34 Tournament · Navegación en Alta Mar
             </span>
             <span className="text-[11px] text-neutral-500">
               Circuito Oficial 2026
