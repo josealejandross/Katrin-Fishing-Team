@@ -223,6 +223,18 @@ export const SPONSORSHIP_TIERS: SponsorshipTier[] = [
 
 export const WATER_STORIES: WaterStory[] = [
   {
+    id: 'dupleta-pez-vela',
+    title: 'ESPECTACULAR DUPLETA DE PEZ VELA',
+    species: 'Sailfish',
+    location: 'Puerto la Cruz',
+    date: '11 de octubre, 2026',
+    timestamp: '11 de octubre, 2026',
+    caption: 'José Alejandro Salazar capturó dos de los seis peces vela que saltaron al spread. Jornada salvaje: sumamos dorados, fuertes wahoos y hasta vimos ballenas hoy.',
+    aspect: 'horizontal',
+    photoUrl: '/stories/dupleta_pez_vela.jpg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/IMG_1109.jpg'
+  },
+  {
     id: 'batalla-anochecer-gigante-azul',
     title: 'BATALLA HASTA EL ANOCHECER CON EL GIGANTE AZUL',
     species: 'Marlin Azul',
