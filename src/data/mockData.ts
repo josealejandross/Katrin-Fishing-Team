@@ -223,9 +223,19 @@ export const SPONSORSHIP_TIERS: SponsorshipTier[] = [
 
 export const WATER_STORIES: WaterStory[] = [
   {
+    id: 'valida-pesca-bagre',
+    title: '2DA VÁLIDA DE PESCA DE BAGRE',
+    location: 'Lechería',
+    date: '16 de octubre, 2026',
+    timestamp: '16 de octubre, 2026',
+    caption: 'Una jornada espectacular celebrando el cumpleaños de José Jesús "Chu-chu" Salazar. Disfrutamos al máximo compartiendo entre grandes amigos y familiares.',
+    aspect: 'horizontal',
+    photoUrl: '/stories/valida_bagre.jpeg',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/7938ABBF-73EE-493F-8B27-8A555A3BBC1C.jpeg'
+  },
+  {
     id: 'dupleta-pez-vela',
     title: 'ESPECTACULAR DUPLETA DE PEZ VELA',
-    species: 'Sailfish',
     location: 'Puerto la Cruz',
     date: '11 de octubre, 2026',
     timestamp: '11 de octubre, 2026',
@@ -237,7 +247,6 @@ export const WATER_STORIES: WaterStory[] = [
   {
     id: 'batalla-anochecer-gigante-azul',
     title: 'BATALLA HASTA EL ANOCHECER CON EL GIGANTE AZUL',
-    species: 'Marlin Azul',
     location: 'Puerto la Cruz',
     date: '26 de septiembre, 2026',
     timestamp: '26 de septiembre, 2026',

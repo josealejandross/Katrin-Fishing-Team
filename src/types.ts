@@ -56,7 +56,7 @@ export interface SponsorshipTier {
 export interface WaterStory {
   id: string;
   title: string;
-  species: string;
+  species?: string;
   weight?: string;
   coordinates?: string;
   waterTemp?: string;

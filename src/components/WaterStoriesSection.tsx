@@ -26,7 +26,7 @@ export const WaterStoriesSection: React.FC = () => {
         </div>
 
         {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {WATER_STORIES.map((story) => (
             <div
               key={story.id}
@@ -50,11 +50,6 @@ export const WaterStoriesSection: React.FC = () => {
                 {/* Gradient Scrim */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c121e] via-transparent to-black/30 pointer-events-none"></div>
 
-                {/* Species Badge on top-right */}
-                <div className="absolute top-4 right-4 bg-cyan-950/80 border border-cyan-500/40 text-cyan-300 font-mono text-xs uppercase tracking-wider px-3 py-1 backdrop-blur-sm shadow-md">
-                  {story.species}
-                </div>
-
                 {/* Expand Hint icon on bottom-right */}
                 <div className="absolute bottom-4 right-4 p-2 rounded-full bg-black/60 text-white/80 group-hover:text-white group-hover:bg-black/90 transition-all backdrop-blur-sm">
                   <Maximize2 className="w-4 h-4" />
@@ -62,8 +57,8 @@ export const WaterStoriesSection: React.FC = () => {
               </div>
 
               {/* Story Editorial Body */}
-              <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between space-y-6">
-                {/* Meta: Location and Date only (No hour) */}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-5">
+                {/* Meta: Location and Date only (No hour, no species) */}
                 <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-400 border-b border-neutral-850 pb-4">
                   <div className="flex items-center gap-1.5 text-cyan-400">
                     <MapPin className="w-3.5 h-3.5" />
@@ -74,13 +69,11 @@ export const WaterStoriesSection: React.FC = () => {
                     <Calendar className="w-3.5 h-3.5 text-neutral-500" />
                     <span>{story.date}</span>
                   </div>
-                  <span className="text-neutral-600">·</span>
-                  <span className="text-neutral-400">Especie: <strong className="text-white font-medium">{story.species}</strong></span>
                 </div>
 
                 {/* Title & Caption */}
                 <div className="space-y-3 flex-1">
-                  <h3 className="text-xl sm:text-2xl font-heading font-black uppercase text-white group-hover:text-cyan-400 transition-colors leading-tight">
+                  <h3 className="text-lg sm:text-xl font-heading font-black uppercase text-white group-hover:text-cyan-400 transition-colors leading-tight">
                     {story.title}
                   </h3>
 
@@ -91,7 +84,7 @@ export const WaterStoriesSection: React.FC = () => {
 
                 {/* Bottom bar */}
                 <div className="pt-2 flex justify-between items-center text-xs font-mono text-neutral-400 group-hover:text-white transition-colors">
-                  <span>Katrin Fishing Team · Bitácora</span>
+                  <span>Katrin Fishing Team</span>
                   <span className="inline-flex items-center gap-1 text-cyan-400">
                     Ver imagen completa <Maximize2 className="w-3 h-3 ml-1" />
                   </span>
@@ -121,7 +114,7 @@ export const WaterStoriesSection: React.FC = () => {
             </button>
 
             <div className="space-y-5">
-              {/* Meta row */}
+              {/* Meta row: Location and Date only */}
               <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-neutral-400">
                 <span className="flex items-center gap-1.5 text-cyan-400">
                   <MapPin className="w-3.5 h-3.5" />
@@ -132,8 +125,6 @@ export const WaterStoriesSection: React.FC = () => {
                   <Calendar className="w-3.5 h-3.5 text-neutral-500" />
                   {selectedStory.date}
                 </span>
-                <span>·</span>
-                <span>Especie: <strong className="text-white">{selectedStory.species}</strong></span>
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-heading font-black uppercase text-white leading-tight">
