@@ -25,8 +25,8 @@ export const WaterStoriesSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Stories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Stories Grid: Symmetrical 2-column editorial on desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {WATER_STORIES.map((story) => (
             <div
               key={story.id}

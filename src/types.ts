@@ -30,12 +30,17 @@ export interface Tournament {
   name: string;
   location: string;
   date: string;
-  daysRemaining: number;
-  purse: string;
-  targetSpecies: string[];
-  status: 'Confirmado' | 'Campeón Defensor' | 'Clasificado' | 'Prioridad Oro';
-  previousResult: string;
-  edition: string;
+  organizer?: string;
+  flyerUrl?: string;
+  flyerFallback?: string;
+  daysRemaining?: number;
+  purse?: string;
+  targetSpecies?: string[];
+  status?: string;
+  previousResult?: string;
+  edition?: string;
+  contact?: string;
+  socialHandle?: string;
 }
 
 export interface SponsorshipTier {

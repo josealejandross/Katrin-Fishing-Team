@@ -96,76 +96,102 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
           </p>
         </div>
 
-        {/* 3 Clean Tier Cards Centered */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 w-full">
-          {SPONSORSHIP_TIERS.map((tier) => {
-            const isSelected = selectedTier === tier.id;
-            return (
-              <div
-                key={tier.id}
-                className={`p-8 bg-[#0c121e] border flex flex-col justify-between items-center text-center transition-all ${
-                  tier.featured
-                    ? 'border-white shadow-xl'
-                    : 'border-neutral-850 hover:border-neutral-700'
-                }`}
-              >
-                <div className="w-full flex flex-col items-center text-center">
-                  <div className="border-b border-neutral-850 pb-6 mb-6 w-full flex flex-col items-center text-center">
-                    <span className="text-[10px] uppercase tracking-wider text-neutral-400 block mb-1 text-center font-medium">
-                      Nivel de Patrocinio
-                    </span>
-                    <h3 className="text-2xl font-bold uppercase text-white text-center">
-                      {tier.name}
-                    </h3>
-                    <p className="text-xs text-neutral-400 font-normal mt-1 text-center max-w-xs mx-auto">
-                      {tier.subtitle}
-                    </p>
-                    <div className="mt-4 pt-4 border-t border-neutral-900 w-full text-center">
-                      <span className="text-[10px] uppercase tracking-wider text-neutral-400 block mb-1 text-center font-medium">
-                        Aporte Requerido
-                      </span>
-                      <span className="text-xl sm:text-2xl font-bold text-white block text-center">
-                        {tier.investment}
-                      </span>
-                    </div>
-                  </div>
+        {/* 3 Tier Cards with Reference Layout (Distribution, Hierarchy & Aesthetics) */}
+        {(() => {
+          const orderedTiers = [
+            SPONSORSHIP_TIERS.find((t) => t.id === 'plata') || SPONSORSHIP_TIERS[1],
+            SPONSORSHIP_TIERS.find((t) => t.id === 'oro') || SPONSORSHIP_TIERS[0],
+            SPONSORSHIP_TIERS.find((t) => t.id === 'aliado') || SPONSORSHIP_TIERS[2]
+          ].filter(Boolean);
 
-                  <div className="space-y-3 mb-8 w-full flex flex-col items-center text-center">
-                    <span className="text-[10px] uppercase tracking-wider text-neutral-400 block text-center font-medium">
-                      Beneficios Entregados al Patrocinador:
-                    </span>
-                    <div className="space-y-2.5 w-full flex flex-col items-center">
-                      {tier.benefits.map((b, idx) => (
-                        <div key={idx} className="text-xs text-neutral-200 font-normal text-center max-w-xs flex items-start gap-2">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-white/80 shrink-0 mt-0.5" />
-                          <span>{b.text}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+          return (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-20 w-full items-stretch text-left">
+              {orderedTiers.map((tier) => {
+                const isSelected = selectedTier === tier.id;
+                const isFeatured = tier.featured;
 
-                <div className="pt-6 border-t border-neutral-850 space-y-3 w-full flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center gap-2 text-[11px] text-neutral-400 text-center">
-                    <span>Alcance:</span>
-                    <span className="text-white font-medium">{tier.impressionsEstimated}</span>
-                  </div>
-
-                  <button
-                    onClick={() => handleSelectTier(tier.id)}
-                    className={`w-full py-3.5 text-xs font-bold uppercase tracking-wider transition-colors text-center ${
+                return (
+                  <div
+                    key={tier.id}
+                    className={`rounded-[28px] p-3 sm:p-3.5 bg-[#0c121e] border flex flex-col justify-between transition-all duration-300 shadow-xl text-left ${
                       isSelected
-                        ? 'bg-white text-black'
-                        : 'bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-750'
+                        ? 'border-white shadow-2xl ring-1 ring-white/60'
+                        : isFeatured
+                        ? 'border-cyan-500/40 hover:border-cyan-400'
+                        : 'border-neutral-850 hover:border-neutral-700'
                     }`}
                   >
-                    {isSelected ? 'PLAN SELECCIONADO ✓' : 'SELECCIONAR ESTE PLAN'}
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                    {/* Top Inner Hero Box */}
+                    <div
+                      className={`rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden text-left ${
+                        isFeatured
+                          ? 'bg-gradient-to-br from-[#18263e] via-[#101928] to-[#0a101c] border border-cyan-500/30'
+                          : 'bg-[#121927] border border-neutral-800/80'
+                      }`}
+                    >
+                      {/* Ambient Sunset/Oceanic Glow on Featured Card (Ref: Option B) */}
+                      {isFeatured && (
+                        <div className="absolute -top-10 -right-10 w-48 h-48 bg-gradient-to-br from-cyan-400/20 via-sky-500/15 to-purple-500/15 rounded-full blur-2xl pointer-events-none"></div>
+                      )}
+
+                      <div className="relative z-10 flex flex-col items-start text-left w-full">
+                        {/* Plan Name */}
+                        <div className="flex items-center justify-between w-full mb-3">
+                          <span className="text-sm font-bold uppercase tracking-wider text-neutral-200 font-mono text-left">
+                            {tier.name}
+                          </span>
+                          {isFeatured && (
+                            <span className="px-2.5 py-0.5 rounded-full bg-cyan-950/90 text-cyan-300 border border-cyan-500/40 text-[10px] font-mono uppercase tracking-wider font-semibold">
+                              Destacado
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Description Sentence (Left-aligned) */}
+                        <p className="text-xs sm:text-sm text-neutral-300 font-normal mt-1 leading-relaxed text-left min-h-[3rem]">
+                          {tier.idealFor || tier.subtitle}
+                        </p>
+
+                        {/* Full-width Button inside Top Box */}
+                        <button
+                          onClick={() => handleSelectTier(tier.id)}
+                          type="button"
+                          className={`w-full mt-6 py-3 px-4 rounded-xl font-bold text-xs uppercase tracking-wider transition-all text-center cursor-pointer shadow-md ${
+                            isSelected
+                              ? 'bg-white text-black hover:bg-neutral-200'
+                              : isFeatured
+                              ? 'bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold'
+                              : 'bg-[#080d16] hover:bg-black text-white border border-neutral-700/80'
+                          }`}
+                        >
+                          {isSelected ? 'Plan Seleccionado ✓' : 'Seleccionar Plan'}
+                        </button>
+                      </div>
+                    </div>
+
+                    {/* Bottom Benefits / Features List (Left-aligned) */}
+                    <div className="px-3 pt-6 pb-3 sm:px-4 sm:pt-7 sm:pb-4 space-y-3.5 flex-1 flex flex-col justify-start text-left">
+                      <div className="space-y-3 text-left">
+                        {tier.benefits.map((b, idx) => (
+                          <div key={idx} className="flex items-start gap-3 text-xs sm:text-[13px] text-neutral-300 font-normal leading-snug text-left">
+                            <CheckCircle2 className="w-4 h-4 text-neutral-400 shrink-0 mt-0.5 stroke-[1.75]" />
+                            <span className="text-left">{b.text}</span>
+                          </div>
+                        ))}
+                        {tier.impressionsEstimated && (
+                          <div className="flex items-start gap-3 text-xs sm:text-[13px] text-cyan-400 font-normal leading-snug pt-0.5 text-left">
+                            <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5 stroke-[1.75]" />
+                            <span className="text-left">{tier.impressionsEstimated}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })()}
 
         {/* Clean Contact Form Centered */}
         <div id="formulario-patrocinio" className="max-w-3xl w-full mx-auto p-8 sm:p-12 bg-[#0c121e] border border-neutral-850 text-center flex flex-col items-center">
@@ -264,7 +290,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+1 (555) 000-0000"
+                    placeholder="+58 414 123 4567"
                     className="w-full bg-[#080c14] border border-neutral-800 px-4 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-white font-mono text-center"
                   />
                 </div>
@@ -281,7 +307,7 @@ export const SponsorshipLanding: React.FC<SponsorshipLandingProps> = ({
                 >
                   {SPONSORSHIP_TIERS.map((t) => (
                     <option key={t.id} value={t.id} className="bg-[#080c14] text-white">
-                      {t.name} — {t.investment}
+                      {t.name}
                     </option>
                   ))}
                 </select>

@@ -23,7 +23,7 @@ export const CrewSection: React.FC = () => {
         </div>
 
         {/* Horizontal Scroll on Mobile, 5-col Grid on Desktop */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-5 pb-4 -mx-6 px-6 no-scrollbar touch-pan-x sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0">
+        <div className="flex overflow-x-auto snap-x snap-proximity gap-5 pb-4 -mx-6 px-6 no-scrollbar touch-pan-y sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0">
           {CREW_MEMBERS.map((member) => (
             <div
               key={member.id}

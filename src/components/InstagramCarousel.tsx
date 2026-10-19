@@ -138,7 +138,7 @@ export const InstagramCarousel: React.FC = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
-        className={`-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar scroll-smooth pb-3 touch-pan-x overscroll-x-contain ${
+        className={`-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-proximity no-scrollbar scroll-smooth pb-3 touch-pan-y ${
           isMouseDown ? 'cursor-grabbing select-none' : 'cursor-grab'
         }`}
       >

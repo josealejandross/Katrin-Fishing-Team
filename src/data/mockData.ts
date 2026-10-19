@@ -124,52 +124,18 @@ export const CREW_MEMBERS: CrewMember[] = [
 
 export const TOURNAMENTS: Tournament[] = [
   {
-    id: 'bisbees-black-blue',
-    name: "Bisbee's Black & Blue",
-    location: 'Cabo San Lucas, Baja California Sur',
-    date: '20 - 24 Octubre 2026',
-    daysRemaining: 17,
-    purse: '$4,250,000 USD',
-    targetSpecies: ['Marlin Azul', 'Marlin Negro', 'Atún'],
-    status: 'Campeón Defensor',
-    previousResult: '1er Lugar Marlin Jackpot (2025)',
-    edition: '46ª Edición'
-  },
-  {
-    id: 'los-suenos-triple-crown',
-    name: 'Los Sueños Signature Triple Crown',
-    location: 'Bahía Herradura, Costa Rica',
-    date: '15 - 18 Noviembre 2026',
-    daysRemaining: 43,
-    purse: '$1,400,000 USD',
-    targetSpecies: ['Pez Vela', 'Marlin Azul', 'Dorado'],
+    id: 'xvii-billfish-tournament-mahi-mahi',
+    name: 'XVII Edición Billfish Tournament',
+    edition: 'XVII Edición',
+    date: 'Del 26 al 28 de noviembre',
+    organizer: 'Mahi Mahi Charters',
+    location: 'Temporada Pesca de Altura 2026',
     status: 'Confirmado',
-    previousResult: '2º Lugar General por Equipos (44 Releases)',
-    edition: '22ª Edición'
-  },
-  {
-    id: 'white-marlin-open',
-    name: 'White Marlin Open',
-    location: 'Ocean City, Maryland, USA',
-    date: '03 - 07 Agosto 2026',
-    daysRemaining: 304,
-    purse: '$10,500,000 USD',
-    targetSpecies: ['White Marlin', 'Blue Marlin', 'Tuna'],
-    status: 'Clasificado',
-    previousResult: 'Top 5 Tuna Division (198 lbs)',
-    edition: '53ª Edición'
-  },
-  {
-    id: 'casa-de-campo-cup',
-    name: 'Marina Casa de Campo Blue Marlin Classic',
-    location: 'La Romana, República Dominicana',
-    date: '12 - 16 Mayo 2026',
-    daysRemaining: 221,
-    purse: '$850,000 USD',
-    targetSpecies: ['Marlin Azul', 'Pez Vela', 'Wahoo'],
-    status: 'Prioridad Oro',
-    previousResult: 'Ganador Mejor Embarcación y Mayor Puntuación Diaria',
-    edition: '11ª Edición'
+    purse: 'Por Definir',
+    flyerUrl: '/tournaments/mahi_mahi_tournament.jpeg',
+    flyerFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/c4e6726b-c002-444e-a62f-2de55bd7b23b.jpeg',
+    socialHandle: '@mahimahicharter',
+    contact: '0424-8649908 / 0414-8038687'
   }
 ];
 
@@ -182,7 +148,7 @@ export const SPONSORSHIP_TIERS: SponsorshipTier[] = [
     featured: true,
     idealFor: 'Marcas que buscan presencia principal y contenido audiovisual exclusivo',
     benefits: [
-      { icon: 'shirt', text: 'Logo principal en el pecho o espalda de la camisa.' },
+      { icon: 'shirt', text: 'Logo principal en la espalda de la camisa.' },
       { icon: 'video', text: '1 Reel exclusivo en Instagram/YouTube producido profesionalmente.' },
       { icon: 'instagram', text: 'Mención en todas las historias del torneo.' },
       { icon: 'flag', text: 'Bandera en la lancha.' }
@@ -198,11 +164,11 @@ export const SPONSORSHIP_TIERS: SponsorshipTier[] = [
     featured: false,
     idealFor: 'Marcas que desean presencia destacada en camisa y video resumen',
     benefits: [
-      { icon: 'shirt', text: 'Logo secundario en mangas de la camisa.' },
+      { icon: 'shirt', text: 'Logo secundario en la espalda.' },
       { icon: 'film', text: 'Aparición destacada en el aftermovie o video resumen del torneo.' },
       { icon: 'share-2', text: 'Mención en redes sociales durante el pesaje.' }
     ],
-    impressionsEstimated: 'Visibilidad en mangas y difusión digital durante el pesaje',
+    impressionsEstimated: 'Visibilidad en la espalda y difusión digital durante el pesaje',
     vipDays: 0
   },
   {
@@ -222,6 +188,17 @@ export const SPONSORSHIP_TIERS: SponsorshipTier[] = [
 ];
 
 export const WATER_STORIES: WaterStory[] = [
+  {
+    id: '10-aniversario-katrin',
+    title: '10 ANIVERSARIO KATRIN FISHING TEAM',
+    location: 'Lechería',
+    date: '18 de octubre, 2026',
+    timestamp: '18 de octubre, 2026',
+    caption: 'Celebramos una década exacta desde la creación del equipo. Son 10 años de anécdotas, reconociendo el gran esfuerzo y sacrificio para hacer posible nuestro equipo.',
+    aspect: 'horizontal',
+    photoUrl: '/stories/10_aniversario.png',
+    photoFallback: 'https://lituozmsdcrsgvkdityk.supabase.co/storage/v1/object/public/Imagenes/10-aniversario-katrin.png'
+  },
   {
     id: 'valida-pesca-bagre',
     title: '2DA VÁLIDA DE PESCA DE BAGRE',
