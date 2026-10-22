@@ -138,7 +138,7 @@ export const InstagramCarousel: React.FC = () => {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
         onMouseLeave={handleMouseUpOrLeave}
-        className={`-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto snap-x snap-proximity no-scrollbar scroll-smooth pb-3 touch-pan-y ${
+        className={`-mx-6 px-6 sm:mx-0 sm:px-0 flex gap-4 sm:gap-5 overflow-x-auto no-scrollbar pb-3 touch-auto ${
           isMouseDown ? 'cursor-grabbing select-none' : 'cursor-grab'
         }`}
       >
@@ -151,7 +151,7 @@ export const InstagramCarousel: React.FC = () => {
             onClick={handleClickItem}
             aria-label="Ver publicación en Instagram de Katrin Fishing"
             style={{ aspectRatio: '1 / 1' }}
-            className="group/item relative shrink-0 w-[72vw] min-w-[220px] max-w-[280px] sm:w-[240px] md:w-[260px] lg:w-[275px] aspect-square bg-neutral-900 border border-neutral-200 hover:border-neutral-900 transition-all snap-start block shadow-sm overflow-hidden select-none"
+            className="group/item relative shrink-0 w-[72vw] min-w-[220px] max-w-[280px] sm:w-[240px] md:w-[260px] lg:w-[275px] aspect-square bg-neutral-900 border border-neutral-200 hover:border-neutral-900 transition-all block shadow-sm overflow-hidden select-none"
           >
             {/* Absolute positioning guarantees 100% width and height coverage on all WebKit & mobile engines */}
             <img

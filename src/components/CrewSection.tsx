@@ -23,11 +23,11 @@ export const CrewSection: React.FC = () => {
         </div>
 
         {/* Horizontal Scroll on Mobile, 5-col Grid on Desktop */}
-        <div className="flex overflow-x-auto snap-x snap-proximity gap-5 pb-4 -mx-6 px-6 no-scrollbar touch-pan-y sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0">
+        <div className="flex overflow-x-auto gap-5 pb-4 -mx-6 px-6 no-scrollbar touch-auto sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 sm:gap-5 sm:overflow-visible sm:pb-0">
           {CREW_MEMBERS.map((member) => (
             <div
               key={member.id}
-              className="shrink-0 w-[74vw] max-w-[260px] snap-start sm:w-auto sm:max-w-none bg-[#0c121e] border border-neutral-850 hover:border-neutral-700 transition-all flex flex-col group"
+              className="shrink-0 w-[74vw] max-w-[260px] sm:w-auto sm:max-w-none bg-[#0c121e] border border-neutral-850 hover:border-neutral-700 transition-all flex flex-col group"
             >
               {/* Photo Area: Strict 4/5 Aspect Ratio & shrink-0 across all cards */}
               <div className="relative aspect-[4/5] w-full overflow-hidden bg-neutral-900 shrink-0">
